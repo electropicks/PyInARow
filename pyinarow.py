@@ -1,3 +1,5 @@
+from re import L
+from matplotlib.pyplot import draw
 from utils import *
 from termcolor import colored
 
@@ -11,27 +13,14 @@ print("""
 ╚═╝░░░░░░░░╚═╝░░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░""")
 #setup done
 
-#print empty board
-num_of_rows = 6
-num_of_cols = 7
-    #setup top edge
-for col in range(num_of_cols*2 + 1):
-    printf(colored("-", "blue"))
-printf("\n")
+#game begins
+p1 = input("Player 1, input your name: ")
+p1 = p1[:min(len(p1), 10)]
+p2 = input("Player 2, input your name: ")
+p2 = p2[:min(len(p2), 10)]
 
-    #setup board itself
-for row in range(num_of_rows+1):
-    color = "grey"
-    for col in range(num_of_cols):
-        printf(colored("|", "blue") + colored("◉", color), )
-    if col != 0:
-        print(colored("|", "blue"))
 
-    #setup bottom edge
-for col in range(num_of_cols*2 + 1):
-    printf(colored("-", "blue"))
-printf("\n ")
-    #setup line numbers
-for col in range(num_of_cols):
-    print(str(col) + " ", end = '')
+game = Game(p1, p2, rows=6, cols=7)
+for i in range(10):
+    game.play()
 
