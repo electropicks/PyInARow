@@ -22,5 +22,5 @@ if __name__ == "__main__":
     while not game.over:
         game.play()
     game.turn = not game.turn
-    print(game.p1 if game.turn else game.p2, "wins! Thanks for playing!")
+    print(game.p1 if game.turn else game.p2, "got more than 3.14 in a row! Thanks for playing!")
 
