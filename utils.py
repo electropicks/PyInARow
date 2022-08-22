@@ -18,6 +18,14 @@ class Game:
         self.over = False
         draw_board(self)
     def play(self):
+        all_full = True
+        for i in range(self.cols):
+            if count_col(self, i) < len(self.grid[i]):
+                all_full = False
+        if all_full:
+            self.over = True
+            draw_board(self)
+            return
         while True:
             try:
                 choice = int(input((self.p1 if self.turn else self.p2) + " pick a column for your next piece: "))
@@ -39,6 +47,8 @@ class Game:
         (up_diag_test(self, choice, count_col(self, choice) - 1)) or\
         (down_diag_test(self, choice, count_col(self, choice) - 1)):
             self.over = True
+            draw_board(self)
+            return
         self.turn = not self.turn
         draw_board(self)
 
@@ -105,7 +115,7 @@ def down_diag_test(game, col, row):
         count_up += 1
     #to the left
     count_down = 0
-    while (col - 1 - count_down) in range(game.cols) and (row - 1 + count_down) in range(game.cols) and\
+    while (col + 1 - count_down) in range(game.cols) and (row - 1 + count_down) in range(game.cols) and\
     game.grid[col + 1 - count_down][row - 1 + count_down] == game.grid[col][row]:
         count_down -= 1
     count_down = abs(count_down)

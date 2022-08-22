@@ -21,6 +21,5 @@ if __name__ == "__main__":
     game = Game(p1, p2, rows=6, cols=7)
     while not game.over:
         game.play()
-    game.turn = not game.turn
     print(game.p1 if game.turn else game.p2, "got more than py (3.14) in a row! Thanks for playing!")
 
