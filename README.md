@@ -4,9 +4,9 @@ Terminal based 4-in-a-row game in python
 This game is a turn based game where both users will play on the same device and terminal window
 
 HOW TO RUN THE GAME:
-
-On any shell (command prompt or terminal for mac and windows) environment equipped with any version of python3,
-run the game by using the command ```python3 main.py```
+1. Download or clone this repo
+2. On any shell (command prompt or terminal for mac and windows) environment equipped with any version of python3, navigate to the PyInARow folder
+3. Run the game by using the command ```python3 main.py```
 
 </br>
 Playing the game:
